@@ -1,0 +1,782 @@
+{
+	"info": {
+		"_postman_id": "14aa5ab9-eae1-4a98-8268-831470ccfa73",
+		"name": "ConnectSphere",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24596876"
+	},
+	"item": [
+		{
+			"name": "RegisterUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"pratik\",\r\n  \"email\": \"pratik@gmail.com\",\r\n  \"password\": \"123456\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/auth/register",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"pratik\",\r\n  \"password\": \"123456\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreatePost",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwcmF0aWsiLCJpYXQiOjE3NjQ4NzU2NDQsImV4cCI6MTc2NDk2MjA0NH0.0-yaNkskGhVbiERXKUxcqOdXRk2kVtCctyc8QXINEt0IwFOhjBfY7qlVCAYESiimbBvNVbOnUmwLqVCHcdGNmA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"content\": \"My first post in social media!\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/posts?userId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"posts"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LikePost",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwcmF0aWsiLCJpYXQiOjE3NjQ5MTk0ODgsImV4cCI6MTc2NTAwNTg4OH0.OaroX89yPZ410aDqedNDKx1SMbhRrTcJhchH1jH0M75uJApwZxaMeVQd6Lm-TwNFX_lCJ7twdkFf5WpSMITIWQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/posts/6932843712cb8e6dff586d90/like?userId=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"posts",
+						"6932843712cb8e6dff586d90",
+						"like"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CommentPost",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwcmF0aWsiLCJpYXQiOjE3NjQ5MTk0ODgsImV4cCI6MTc2NTAwNTg4OH0.OaroX89yPZ410aDqedNDKx1SMbhRrTcJhchH1jH0M75uJApwZxaMeVQd6Lm-TwNFX_lCJ7twdkFf5WpSMITIWQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"text\": \"Nice post bro!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/posts/6932843712cb8e6dff586d90/comment?userId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"posts",
+						"6932843712cb8e6dff586d90",
+						"comment"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddFollower",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwcmF0aWsiLCJpYXQiOjE3NjY4Mjc2NzIsImV4cCI6MTc2NjkxNDA3Mn0.RPByHswnZEWYEkjmBpUQghe7F42pCq1AqhqEONPu810hgInUCu5cNv4sXcJz7EHgM6Oar78JwWShnrhSxCSrMA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/follow/follow?userId=1&followeeId=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"follow",
+						"follow"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "1"
+						},
+						{
+							"key": "followeeId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CheckUserFollower",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwcmF0aWsiLCJpYXQiOjE3NjY4Mjc2NzIsImV4cCI6MTc2NjkxNDA3Mn0.RPByHswnZEWYEkjmBpUQghe7F42pCq1AqhqEONPu810hgInUCu5cNv4sXcJz7EHgM6Oar78JwWShnrhSxCSrMA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/follow/list/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"follow",
+						"list",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPostsBasedOnUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwcmF0aWsiLCJpYXQiOjE3NjY4MjYyNTIsImV4cCI6MTc2NjkxMjY1Mn0.TGbA0frCAvPiSzp1A-jQL8C6fIB3UcB1zwBksE8dkFDW1tUR4pZci030IRWjKPUXxShixFRujgQdJnbNqhEzAw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/posts/user/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"posts",
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ToggleLike",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwcmF0aWsiLCJpYXQiOjE3NjY4MjYyNTIsImV4cCI6MTc2NjkxMjY1Mn0.TGbA0frCAvPiSzp1A-jQL8C6fIB3UcB1zwBksE8dkFDW1tUR4pZci030IRWjKPUXxShixFRujgQdJnbNqhEzAw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/likes/toggle?postId=1&userId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"likes",
+						"toggle"
+					],
+					"query": [
+						{
+							"key": "postId",
+							"value": "1"
+						},
+						{
+							"key": "userId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CountLike",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwcmF0aWsiLCJpYXQiOjE3NjY4MjYyNTIsImV4cCI6MTc2NjkxMjY1Mn0.TGbA0frCAvPiSzp1A-jQL8C6fIB3UcB1zwBksE8dkFDW1tUR4pZci030IRWjKPUXxShixFRujgQdJnbNqhEzAw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/likes/count/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"likes",
+						"count",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddComment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwcmF0aWsiLCJpYXQiOjE3NjY4MjYyNTIsImV4cCI6MTc2NjkxMjY1Mn0.TGbA0frCAvPiSzp1A-jQL8C6fIB3UcB1zwBksE8dkFDW1tUR4pZci030IRWjKPUXxShixFRujgQdJnbNqhEzAw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/comments/add?postId=1&userId=1&content=Nice pic",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"comments",
+						"add"
+					],
+					"query": [
+						{
+							"key": "postId",
+							"value": "1"
+						},
+						{
+							"key": "userId",
+							"value": "1"
+						},
+						{
+							"key": "content",
+							"value": "Nice pic"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetComment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwcmF0aWsiLCJpYXQiOjE3NjY4MjYyNTIsImV4cCI6MTc2NjkxMjY1Mn0.TGbA0frCAvPiSzp1A-jQL8C6fIB3UcB1zwBksE8dkFDW1tUR4pZci030IRWjKPUXxShixFRujgQdJnbNqhEzAw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/comments/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"comments",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteComment",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/comments/1?userId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"comments",
+						"1"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetNotifications",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwcmF0aWsiLCJpYXQiOjE3NjY4MjYyNTIsImV4cCI6MTc2NjkxMjY1Mn0.TGbA0frCAvPiSzp1A-jQL8C6fIB3UcB1zwBksE8dkFDW1tUR4pZci030IRWjKPUXxShixFRujgQdJnbNqhEzAw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/notifications/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"notifications",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MarkNotificationAsRead",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwcmF0aWsiLCJpYXQiOjE3NjY4MjYyNTIsImV4cCI6MTc2NjkxMjY1Mn0.TGbA0frCAvPiSzp1A-jQL8C6fIB3UcB1zwBksE8dkFDW1tUR4pZci030IRWjKPUXxShixFRujgQdJnbNqhEzAw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/notifications/read/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"notifications",
+						"read",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SearchPostByHashTag",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwcmF0aWsiLCJpYXQiOjE3NjY4MjYyNTIsImV4cCI6MTc2NjkxMjY1Mn0.TGbA0frCAvPiSzp1A-jQL8C6fIB3UcB1zwBksE8dkFDW1tUR4pZci030IRWjKPUXxShixFRujgQdJnbNqhEzAw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/posts/search?hashtag=spring",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"posts",
+						"search"
+					],
+					"query": [
+						{
+							"key": "hashtag",
+							"value": "spring"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UnfollowUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwcmF0aWsiLCJpYXQiOjE3NjY4Mjc2NzIsImV4cCI6MTc2NjkxNDA3Mn0.RPByHswnZEWYEkjmBpUQghe7F42pCq1AqhqEONPu810hgInUCu5cNv4sXcJz7EHgM6Oar78JwWShnrhSxCSrMA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/follow/unfollow?userId=1&followeeId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"follow",
+						"unfollow"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "1"
+						},
+						{
+							"key": "followeeId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetFeeds",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwcmF0aWsiLCJpYXQiOjE3NjY4MjYyNTIsImV4cCI6MTc2NjkxMjY1Mn0.TGbA0frCAvPiSzp1A-jQL8C6fIB3UcB1zwBksE8dkFDW1tUR4pZci030IRWjKPUXxShixFRujgQdJnbNqhEzAw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/posts/feed?userId=1&page=0&size=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"posts",
+						"feed"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "1"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateNotification",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwcmF0aWsiLCJpYXQiOjE3NjY4Mjc2NzIsImV4cCI6MTc2NjkxNDA3Mn0.RPByHswnZEWYEkjmBpUQghe7F42pCq1AqhqEONPu810hgInUCu5cNv4sXcJz7EHgM6Oar78JwWShnrhSxCSrMA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/notifications/create?userId=2&message=You got a new follower",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"notifications",
+						"create"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "2"
+						},
+						{
+							"key": "message",
+							"value": "You got a new follower"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
